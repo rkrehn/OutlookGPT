@@ -28,9 +28,11 @@ Installation and Usage:
 4. You will be presented with a window to insert your OpenAI API key. Follow the instructions.
 5. There should be a menu at the top that says "Add-Ins". Select that to see OutlookGPT. If you do not, follow the next step.
 6. Right-click in the ribbon area of your new email and choose "Customize the Ribbon"
+
 ![image](https://github.com/rkrehn/OutlookGPT/assets/15220483/1ae1df5c-70dd-4497-9d4e-51d04ab2178d)
 
 7. Find "Add-Ins" on the panel under "All Commands"
+
 ![image](https://github.com/rkrehn/OutlookGPT/assets/15220483/d4aa2f83-5e74-4548-a226-3d74649173e4)
 
 8. Now, practice writing an email.

@@ -27,6 +27,7 @@ This ChatGPT-powered email rewriting assistant in C# aims to revolutionize the w
 3. Create a new email or reply to an existing one
 4. You will be presented with a window to insert your OpenAI API key. Follow the instructions.
 5. Back in Outlook, there should be a menu at the top of your new email that says "Add-Ins". Click that to see OutlookGPT. If you do not, follow the next step.
+
   5.1 Right-click in the ribbon area of your new email and choose "Customize the Ribbon"
 
   ![image](https://github.com/rkrehn/OutlookGPT/assets/15220483/1ae1df5c-70dd-4497-9d4e-51d04ab2178d)

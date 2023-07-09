@@ -1,16 +1,16 @@
 # OutlookGPT
-Project Overview:
+<h2>Project Overview:</h2>
 
 This project harnesses the power of ChatGPT, an advanced language model, to develop an efficient and intelligent email rewriting assistant. Written in C#, this software application aims to enhance the email writing process by providing users with helpful suggestions and automated rewrites.
 
-Key Features:
+<h2>Key Features:</h2>
 
 * Email Rewriting Assistance: Leveraging ChatGPT's natural language processing capabilities, the application offers intelligent suggestions to improve email structure, grammar, tone, and overall clarity.
 * Contextual Understanding: The assistant analyzes the context of the email and provides personalized recommendations to ensure that the intended message is effectively conveyed.
 * Grammar and Spelling Corrections: Utilizing advanced language processing techniques, the assistant identifies and corrects grammar and spelling errors, preventing embarrassing mistakes in outgoing emails.
 * Tone and Politeness Adjustments: The assistant can help users strike the right tone by suggesting modifications to the language, ensuring professionalism, friendliness, or any other desired style.
 
-Technical Stack:
+<h2>Technical Stack:</h2>
 
 * Programming Language: C#
 * ChatGPT Integration: The application integrates with the ChatGPT API or utilizes a pre-trained ChatGPT model, enabling real-time interactions and generating accurate suggestions.'
@@ -20,7 +20,7 @@ Technical Stack:
 
 This ChatGPT-powered email rewriting assistant in C# aims to revolutionize the way users compose emails, enhancing their communication skills and streamlining the process of crafting effective messages.
 
-Installation and Usage:
+<h2>Installation and Usage:</h2>
 
 1. Run Setup.exe
 2. Open Outlook

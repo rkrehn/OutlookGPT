@@ -35,7 +35,7 @@ This ChatGPT-powered email rewriting assistant in C# aims to revolutionize the w
 
   ![image](https://github.com/rkrehn/OutlookGPT/assets/15220483/1ae1df5c-70dd-4497-9d4e-51d04ab2178d)
 
-  5.2 Find "Add-Ins" on the panel under "All Commands"
+  5.2 Find "Add-Ins" on the panel under "All Commands" and add it
 
   ![image](https://github.com/rkrehn/OutlookGPT/assets/15220483/d4aa2f83-5e74-4548-a226-3d74649173e4)
 

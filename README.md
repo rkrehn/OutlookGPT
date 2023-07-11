@@ -3,9 +3,6 @@
 
 This project harnesses the power of ChatGPT, an advanced language model, to develop an efficient and intelligent email rewriting assistant. Written in C#, this software application aims to enhance the email writing process by providing users with helpful suggestions and automated rewrites.
 
-![image](https://github.com/rkrehn/OutlookGPT/assets/15220483/4c9bd69e-0e7a-41a3-8263-050ddb97b7c4)
-
-
 <h2>Key Features:</h2>
 
 * Email Rewriting Assistance: Leveraging ChatGPT's natural language processing capabilities, the application offers intelligent suggestions to improve email structure, grammar, tone, and overall clarity.
@@ -30,15 +27,8 @@ This ChatGPT-powered email rewriting assistant in C# aims to revolutionize the w
 3. Create a new email or reply to an existing one
 4. You will be presented with a window to insert your OpenAI API key. Follow the instructions.
 5. Back in Outlook, there should be a menu at the top of your new email that says "Add-Ins". Click that to see OutlookGPT. If you do not, follow the next step.
-
   5.1 Right-click in the ribbon area of your new email and choose "Customize the Ribbon"
-
-  ![image](https://github.com/rkrehn/OutlookGPT/assets/15220483/1ae1df5c-70dd-4497-9d4e-51d04ab2178d)
-
   5.2 Find "Add-Ins" on the panel under "All Commands" and add it
-
-  ![image](https://github.com/rkrehn/OutlookGPT/assets/15220483/d4aa2f83-5e74-4548-a226-3d74649173e4)
-
 6. Now, practice writing an email.
 7. Choose a "Mood" (Positive is the default option)
 8. Click "Correct" button

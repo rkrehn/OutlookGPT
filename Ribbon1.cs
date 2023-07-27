@@ -1,4 +1,4 @@
-﻿using Microsoft.Office.Tools.Ribbon;
+using Microsoft.Office.Tools.Ribbon;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -85,6 +85,9 @@ namespace OutlookGPT
                 case "Stern - Direct":
                     prompt = "Please rephrase the following statement very stern and direct: ";
                     break;
+                case "Shorten":
+                    prompt = "Please rephrase the following statement so it's more succint and professional: ";
+                    break;
             }
 
             // add stripped mail body
@@ -133,6 +136,12 @@ namespace OutlookGPT
                 frm.ShowDialog();
             }
 
+        }
+
+        private void btnKey_Click(object sender, RibbonControlEventArgs e)
+        {
+            Form frm = new Form2();
+            frm.ShowDialog();
         }
     }
 }

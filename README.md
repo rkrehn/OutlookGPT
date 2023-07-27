@@ -3,7 +3,7 @@
 
 This project harnesses the power of ChatGPT, an advanced language model, to develop an efficient and intelligent email rewriting assistant. Written in C#, this software application aims to enhance the email writing process by providing users with helpful suggestions and automated rewrites.
 
-[<video src='https://youtu.be/2VBQSqmdJn4' width=180/>](https://youtu.be/2VBQSqmdJn4)
+https://github.com/rkrehn/OutlookGPT/assets/15220483/48c9256a-6543-4d99-bbb2-173961b601a3
   
 <h2>Key Features:</h2>
 

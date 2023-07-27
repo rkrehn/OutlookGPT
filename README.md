@@ -35,3 +35,6 @@ This ChatGPT-powered email rewriting assistant in C# aims to revolutionize the w
 7. Choose a "Mood" (Positive is the default option)
 8. Click "Correct" button
 9. Your email will update with the ChatGPT version on top, and your original version for comparison at the bottom
+
+
+Donations accepted here: https://www.paypal.com/donate/?hosted_button_id=GN4XADEGNLBPQ

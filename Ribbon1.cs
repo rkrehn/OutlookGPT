@@ -1,4 +1,4 @@
-using Microsoft.Office.Tools.Ribbon;
+﻿using Microsoft.Office.Tools.Ribbon;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,37 +18,20 @@ using EmailReplyParser;
 using Microsoft.Office.Core;
 using System.Configuration;
 using System.Windows.Forms;
-using System.IO;
 
 namespace OutlookGPT
 {
     public partial class Ribbon1
     {
-        public string apikey = "";
         //OpenAIAPI api = new OpenAIAPI(new APIAuthentication("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", "org-PTFgADy8tzlDgP6788AS8XSc"));
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
-            // StreamWriter sw = new StreamWriter(Application.UserAppDataPath + "openaikey.dat"
-            if (!File.Exists(System.Windows.Forms.Application.UserAppDataPath + "openaikey.dat"))
+            if (Properties.Settings.Default.OpenAPI.Length < 5)
             {
-                Form frm2 = new Form2();
-                frm2.ShowDialog();
-                
-                Form frm1 = new Form1();
-                frm1.Hide();
-                return;
-            } 
-            else
-            {
-                using (StreamReader sr = new StreamReader(System.Windows.Forms.Application.UserAppDataPath + "openaikey.dat"))
-                {
-                    while (!sr.EndOfStream)
-                    {
-                        apikey = sr.ReadLine();
-                        break;
-                    }
-                }
+                Form frm = new Form2();
+                frm.ShowDialog();
             }
+
         }
 
         private void dropDown1_SelectionChanged(object sender, RibbonControlEventArgs e)
@@ -64,13 +47,10 @@ namespace OutlookGPT
         private async void button1_Click(object sender, RibbonControlEventArgs e)
         {
             // don't want them moving on without setting an API key
-            if (apikey.Length < 5)
+            if (Properties.Settings.Default.OpenAPI.Length < 5)
             {
-                Form frm2 = new Form2();
-                frm2.ShowDialog();
-
-                Form frm1 = new Form1();
-                frm1.Hide();
+                Form frm = new Form2();
+                frm.ShowDialog();
                 return;
             }
 
@@ -87,27 +67,23 @@ namespace OutlookGPT
             }
 
             string prompt = "";
-            string systemrole = "";
             // go through options
             switch (dropDown1.SelectedItem.Label)
             {
                 case "Positive":
-                    systemrole = "Please rephrase the following statement as a positive message: ";
+                    prompt = "Please rephrase the following statement as a positive message: ";
                     break;
                 case "Conscionable":
-                    systemrole = "Please rephrase the following statement more conscionable: ";
+                    prompt = "Please rephrase the following statement more conscionable: ";
                     break;
                 case "Politically Correct":
-                    systemrole = "Please rephrase the following statement as politically correct as possible: ";
+                    prompt = "Please rephrase the following statement as politically correct as possible: ";
                     break;
                 case "Stern - Gently":
-                    systemrole = "Please rephrase the following statement very stern, but also gently: ";
+                    prompt = "Please rephrase the following statement very stern, but also gently: ";
                     break;
                 case "Stern - Direct":
-                    systemrole = "Please rephrase the following statement very stern and direct: ";
-                    break;
-                case "Shorten":
-                    systemrole = "Please rephrase the following statement so it's more succint and professional: ";
+                    prompt = "Please rephrase the following statement very stern and direct: ";
                     break;
             }
 
@@ -118,33 +94,22 @@ namespace OutlookGPT
 
             //prepare all the parameters
             //string apiKey = "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";
-            string model = "gpt-3.5-turbo";
-            int maxTokens = 1024;
+            string apiKey = Properties.Settings.Default.OpenAPI;
+            string model = "text-curie-001";
+            int maxTokens = 256;
             float temperature = 0.7f;
 
             // Build the API request
             try
             {
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                string requestUrl = $"https://api.openai.com/v1/chat/completions";
+                string requestUrl = $"https://api.openai.com/v1/completions";
                 HttpClient client = new HttpClient();
-                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {apikey}");
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
 
                 var requestJson = new
                 {
-                    messages = new[]
-                    {
-                        new
-                        {
-                            role = "system",
-                            content = systemrole
-                        },
-                        new
-                        {
-                            role = "user",
-                            content = prompt
-                        }
-                    },
+                    prompt = prompt,
                     max_tokens = maxTokens,
                     temperature = temperature,
                     model = model
@@ -158,7 +123,7 @@ namespace OutlookGPT
 
                 // Extract the completed text from the response
                 dynamic responseObject = JsonConvert.DeserializeObject(responseJson);
-                string completedText = responseObject.choices[0].message.content;
+                string completedText = responseObject.choices[0].text;
                 completedText = completedText.Replace("\n", "<br>");
                 mailItem.HTMLBody = completedText + "<hr>" + oldmail;
             } catch (System.Exception ex)
@@ -168,15 +133,6 @@ namespace OutlookGPT
                 frm.ShowDialog();
             }
 
-        }
-
-        private void btnKey_Click(object sender, RibbonControlEventArgs e)
-        {
-            Form frm2 = new Form2();
-            frm2.ShowDialog();
-
-            Form frm1 = new Form1();
-            frm1.Hide();
         }
     }
 }
